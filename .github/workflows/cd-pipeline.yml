@@ -6,7 +6,7 @@ on:
     branches:
     - master
 jobs:
-  Lint-Test-Build-Application:
+  Build-Push-Deploy-Application:
     runs-on: self-hosted
     steps:
       - name: Check out repository code
