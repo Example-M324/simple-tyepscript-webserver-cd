@@ -5,6 +5,8 @@ on:
     - closed
     branches:
     - master
+env:
+  IMAGE_TAG: switzerchees/simple-typescript-webserver:${{ github.sha }}
 jobs:
   Build-Push-Deploy-Application:
     # runs-on: self-hosted # Bypass due to quemu issue with macbook M1
@@ -25,7 +27,8 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: switzerchees/simple-typescript-webserver
+          tags: ${{ env.IMAGE_TAG }}
+
 
       - name: Check and Install kubectl
         uses: azure/setup-kubectl@v3
@@ -47,3 +50,5 @@ jobs:
             .k8s/02_service.yml
             .k8s/03_ingress.yml
           replacement-method: defined
+          env-replacement-list: |
+            GITHUB_SHA=${{ github.sha }}
