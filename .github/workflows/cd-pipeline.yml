@@ -7,7 +7,8 @@ on:
     - master
 jobs:
   Build-Push-Deploy-Application:
-    runs-on: self-hosted
+    # runs-on: self-hosted # Bypass due to quemu issue with macbook M1
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
