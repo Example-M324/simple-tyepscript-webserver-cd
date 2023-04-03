@@ -21,7 +21,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: switzerchees/simple-typescript
+          tags: switzerchees/simple-typescript-webserver
 
       - name: Check and Install kubectl
         uses: azure/setup-kubectl@v3
