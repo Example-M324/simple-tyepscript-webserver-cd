@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 // route for / that returns a simple html page with the hostname
 app.get('/', (req: Request, res: Response) => {
-  res.send(`<h1>Hello World!</h1><p>Host: ${os.hostname()}</p>`);
+  res.send(`<h1>Hello CSBE!</h1><p>Host: ${os.hostname()}</p>`);
 });
 
 const serverPort = process.env.PORT || 3000;
